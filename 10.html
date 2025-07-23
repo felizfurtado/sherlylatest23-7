@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Testimonials Slider</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #5a4a42;
+            --color-secondary: #db88a4;
+            --color-accent: #a8c3d4;
+            --bg-color: #f9f5f2;
+            --card-bg: rgba(255, 255, 255, 0.92);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Playfair Display", serif;
+            background-color: var(--bg-color);
+            color: var(--color-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Testimonials Section - Strict 100vh */
+        .testimonials-section {
+            height: 100vh;
+            width: 100%;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .testimonials-section h2 {
+            font-family: "Agrandir";
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--color-primary);
+            font-weight: 400;
+            position: relative;
+            z-index: 3;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonials-container {
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+            z-index: 2;
+            padding: 0 40px;
+            height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 70%;
+            min-height: 400px;
+        }
+
+        .testimonial-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: 0 15px;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-content {
+            background-color: var(--card-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 18px;
+            padding: 40px;
+            box-shadow: 0 20px 40px -10px rgba(90, 74, 66, 0.08);
+            position: relative;
+            border: 1px solid rgba(219, 136, 164, 0.15);
+            height: auto;
+            max-height: 100%;
+            overflow: auto;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: "Playfair Display", serif;
+            font-size: 5rem;
+            color: rgba(219, 136, 164, 0.1);
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-text {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+            font-style: italic;
+            font-weight: 400;
+            max-height: 60%;
+            overflow: auto;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .author-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(168, 195, 212, 0.3);
+        }
+
+        .author-name {
+            font-family: "Playfair Display", serif;
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+
+        .author-title {
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.9rem;
+            color: var(--color-primary);
+            opacity: 0.7;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            z-index: 3;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(90, 74, 66, 0.15);
+            margin: 0 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: var(--color-secondary);
+            transform: scale(1.2);
+        }
+
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: calc(100% + 80px);
+            left: -40px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .slider-arrow {
+            background-color: var(--card-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            pointer-events: all;
+            box-shadow: 0 5px 20px rgba(90, 74, 66, 0.1);
+            transition: all 0.3s ease;
+            color: var(--color-primary);
+            border: 1px solid rgba(90, 74, 66, 0.08);
+        }
+
+        .slider-arrow:hover {
+            background-color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(90, 74, 66, 0.15);
+            color: var(--color-secondary);
+        }
+
+        .slider-arrow i {
+            font-size: 1.2rem;
+        }
+
+        /* Background Elements */
+        .testimonials-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .testimonial-shape {
+            position: absolute;
+            opacity: 0.08;
+            filter: blur(40px);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .testimonial-shape-1 {
+            width: 300px;
+            height: 300px;
+            background: #a5c3d5;
+            top: 10%;
+            right: 5%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-delay: 0s;
+        }
+
+        .testimonial-shape-2 {
+            width: 250px;
+            height: 250px;
+            background: #db88a4;
+            bottom: 10%;
+            left: 5%;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation-delay: 3s;
+            animation-duration: 18s;
+        }
+
+        .testimonial-shape-3 {
+            width: 200px;
+            height: 200px;
+            background: #738fbd;
+            top: 50%;
+            left: 20%;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation-delay: 1.5s;
+            animation-duration: 12s;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            25% { transform: translateY(-15px) translateX(10px) rotate(3deg); }
+            50% { transform: translateY(10px) translateX(-15px) rotate(-3deg); }
+            75% { transform: translateY(-10px) translateX(5px) rotate(2deg); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .testimonials-container {
+                padding: 0 30px;
+                height: calc(100vh - 180px);
+            }
+            
+            .slider-arrows {
+                width: calc(100% + 60px);
+                left: -30px;
+            }
+            
+            .testimonial-content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-container {
+                padding: 0 20px;
+                height: calc(100vh - 160px);
+            }
+            
+            .slider-arrows {
+                width: calc(100% + 40px);
+                left: -20px;
+            }
+            
+            .slider-arrow {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .testimonial-content {
+                padding: 25px;
+            }
+            
+            .author-avatar {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .testimonials-section {
+                padding: 0 5%;
+            }
+            
+            .testimonials-container {
+                height: calc(100vh - 140px);
+            }
+            
+            .testimonial-slider {
+                min-height: 350px;
+            }
+            
+            .testimonial-content {
+                padding: 20px;
+            }
+            
+            .testimonial-content::before {
+                font-size: 4rem;
+                left: 20px;
+                top: 15px;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .slider-arrow i {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-height: 700px) {
+            .testimonials-section h2 {
+                margin-bottom: 1rem;
+            }
+            
+            .testimonials-container {
+                height: calc(100vh - 120px);
+            }
+            
+            .testimonial-content {
+                padding: 20px 15px;
+            }
+            
+            .testimonial-text {
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+            }
+            
+            .author-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .author-name {
+                font-size: 1.1rem;
+            }
+            
+            .slider-nav {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="testimonials-section">
+        <div class="testimonials-bg">
+            <div class="testimonial-shape testimonial-shape-1"></div>
+            <div class="testimonial-shape testimonial-shape-2"></div>
+            <div class="testimonial-shape testimonial-shape-3"></div>
+        </div>
+        
+        <h2>Client Testimonials</h2>
+        
+        <div class="testimonials-container">
+            <div class="slider-arrows">
+                <div class="slider-arrow prev-arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-arrow next-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                Bonita's guidance transformed my life. Her intuitive approach helped me uncover 
+                                deep-seated patterns and find clarity in my relationships. I've never felt 
+                                more empowered and at peace with myself.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">S</div>
+                                <h4 class="author-name">Sarah Johnson</h4>
+                                <p class="author-title">Life Coaching Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                The energy reading session with Bonita was incredibly insightful. She pinpointed 
+                                areas I needed to work on with astonishing accuracy. Since our session, I've 
+                                experienced profound shifts in my emotional wellbeing.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">M</div>
+                                <h4 class="author-name">Michael Chen</h4>
+                                <p class="author-title">Energy Reading Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                Bonita's tarot readings are unlike any I've experienced before. She combines 
+                                traditional interpretation with deep spiritual insight. Each session leaves me 
+                                with practical guidance and renewed hope for my journey ahead.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">E</div>
+                                <h4 class="author-name">Emma Rodriguez</h4>
+                                <p class="author-title">Tarot Reading Client</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">
+                                Working with Bonita in counseling has been transformative. She creates a safe 
+                                space where I feel truly heard and understood. Her gentle yet powerful approach 
+                                has helped me heal wounds I thought would never mend.
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">J</div>
+                                <h4 class="author-name">James Wilson</h4>
+                                <p class="author-title">Counseling Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slider-nav">
+                <div class="slider-dot active"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+                <div class="slider-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.testimonial-track');
+            const cards = document.querySelectorAll('.testimonial-card');
+            const dots = document.querySelectorAll('.slider-dot');
+            const prevBtn = document.querySelector('.prev-arrow');
+            const nextBtn = document.querySelector('.next-arrow');
+            
+            let currentIndex = 0;
+            const cardCount = cards.length;
+            let autoSlideInterval;
+            let isAnimating = false;
+            const animationDuration = 600;
+            
+            // Initialize slider
+            function initSlider() {
+                updateSliderPosition();
+                startAutoSlide();
+                
+                window.addEventListener('resize', function() {
+                    updateSliderPosition();
+                });
+            }
+            
+            function updateSliderPosition() {
+                const cardWidth = cards[0].offsetWidth;
+                track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+                updateActiveDot();
+            }
+            
+            function updateActiveDot() {
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+            }
+            
+            function goToSlide(index) {
+                if (isAnimating || index === currentIndex) return;
+                
+                isAnimating = true;
+                currentIndex = (index + cardCount) % cardCount;
+                updateSliderPosition();
+                
+                resetAutoSlide();
+                
+                setTimeout(() => {
+                    isAnimating = false;
+                }, animationDuration);
+            }
+            
+            function nextSlide() {
+                goToSlide(currentIndex + 1);
+            }
+            
+            function prevSlide() {
+                goToSlide(currentIndex - 1);
+            }
+            
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                startAutoSlide();
+            }
+            
+            const slider = document.querySelector('.testimonial-slider');
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(autoSlideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                resetAutoSlide();
+            });
+            
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => goToSlide(index));
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') nextSlide();
+                else if (e.key === 'ArrowLeft') prevSlide();
+            });
+            
+            // Touch events
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+            
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+            
+            function handleSwipe() {
+                const threshold = 50;
+                if (touchEndX < touchStartX - threshold) nextSlide();
+                else if (touchEndX > touchStartX + threshold) prevSlide();
+            }
+            
+            initSlider();
+        });
+    </script>
+</body>
+</html>

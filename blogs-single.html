@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Art of Being Present | Bonita Fernandes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="nav.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="nav.css" />
+
+    <link
+      href="https://db.onlinewebfonts.com/c/1dc7840abb13fcda12aa8d1cb21fb832?family=Agrandir"
+      rel="stylesheet"
+    />
+
+    <link href="https://fonts.cdnfonts.com/css/gistesy" rel="stylesheet" />
+    <style>
+      /* REUSED STYLES */
+      :root {
+        --color-primary: #5a4a42;
+        --color-secondary: #db88a4;
+        --gradient: linear-gradient(
+          135deg,
+          #738fbd,
+          #a8c3d4,
+          #dbd6df,
+          #eec6c7,
+          #db88a4
+        );
+        --gradient2: linear-gradient(
+          135deg,
+          #a8d1e7,
+          #ffbfc5,
+          #eb8db5,
+          #d4a3c4
+        );
+        --bg-color: #fdfcfa;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Playfair Display", serif;
+        background-color: var(--bg-color);
+        color: var(--color-primary);
+        line-height: 1.6;
+      }
+
+      /* NAVBAR (copy from previous CSS) */
+
+      /* BLOG POST HEADER */
+      .blog-header {
+        padding: 180px 5% 80px;
+        text-align: center;
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .blog-header-image {
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        box-shadow: 0 20px 40px -10px rgba(90, 74, 66, 0.1);
+      }
+
+      .blog-category {
+        display: inline-block;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        color: var(--color-secondary);
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      .blog-title {
+        font-family: "Playfair Display", serif;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .blog-meta {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        color: var(--color-primary);
+        opacity: 0.7;
+        margin-bottom: 40px;
+      }
+
+      /* BLOG CONTENT */
+      .blog-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 5% 80px;
+      }
+
+      .blog-content p {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .blog-content h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        margin: 50px 0 20px;
+        font-weight: 500;
+        color: var(--color-primary);
+      }
+
+      .blog-content blockquote {
+        font-style: italic;
+        font-size: 1.3rem;
+        color: var(--color-primary);
+        border-left: 3px solid var(--color-secondary);
+        padding-left: 30px;
+        margin: 40px 0;
+        opacity: 0.9;
+      }
+
+      .blog-content img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 40px 0;
+        box-shadow: 0 15px 30px -10px rgba(90, 74, 66, 0.1);
+      }
+
+      /* AUTHOR BIO */
+      .author-bio {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        margin: 80px auto;
+        max-width: 800px;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .author-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .author-info h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .author-info p {
+        font-family: "Montserrat", sans-serif;
+        opacity: 0.9;
+        line-height: 1.7;
+      }
+
+      /* RELATED POSTS */
+      .related-posts {
+        padding: 80px 5%;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .related-title {
+        font-family: "Agrandir";
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .related-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .related-card:hover {
+        transform: translateY(-5px);
+      }
+
+      /* FLOATING SHAPES */
+      .floating-shape {
+        position: absolute;
+        opacity: 0.15;
+        filter: blur(30px);
+        animation: float 12s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(2deg);
+        }
+      }
+
+      /* FOOTER (copy from previous CSS) */
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .blog-header-image {
+          height: 350px;
+        }
+        .blog-title {
+          font-size: 2.5rem;
+        }
+        .author-bio {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .blog-title {
+          font-size: 2rem;
+        }
+        .blog-meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-gradient"></div>
+
+    <!-- NAVBAR (copy from previous HTML) -->
+
+    <nav>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <div class="nav-links left-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="about.html">Services</a>
+      </div>
+
+      <div
+        class="logo"
+        style="font-family: 'Gistesy', sans-serif; color: #db88a4"
+      >
+        Bonita Fernandes
+      </div>
+
+      <div class="nav-links right-links">
+        <a href="workshops.html">Workshops</a>
+        <a href="workshops.html">Blogs</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="about.html">Services</a>
+      <a href="workshops.html">Blogs</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- BLOG POST HEADER -->
+    <header class="blog-header">
+      <div
+        class="floating-shape"
+        style="
+          width: 300px;
+          height: 300px;
+          background: #a5c3d5;
+          top: 10%;
+          right: 10%;
+        "
+      ></div>
+      <div
+        class="floating-shape"
+        style="
+          width: 250px;
+          height: 250px;
+          background: #db88a4;
+          bottom: 10%;
+          left: 10%;
+          animation-delay: 2s;
+        "
+      ></div>
+
+      <img src="" alt="Meditation" class="blog-header-image" />
+
+      <span class="blog-category">Mindfulness</span>
+      <h1 class="blog-title">
+        <!-- Blog title will be filled here -->
+      </h1>
+
+      <div class="blog-meta">
+        <!-- Date, Read Time, and Comments will go here -->
+      </div>
+          <article class="blog-content"></article>
+    </header>
+
+    <!-- BLOG CONTENT -->
+
+
+    <script>
+      const blogLink = sessionStorage.getItem("selectedBlog");
+      console.log("Selected blog link from sessionStorage:", blogLink);
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const selectedLink = sessionStorage.getItem("selectedBlog");
+
+        if (!selectedLink) {
+          document.querySelector(".blog-title").textContent =
+            "No blog selected.";
+          document.querySelector(".blog-meta").innerHTML = "";
+          return;
+        }
+
+        fetch("/data/allblogs.json")
+          .then((response) => response.json())
+          .then((allBlogs) => {
+            const matchedBlog = allBlogs.find(
+              (blog) => blog.link === selectedLink
+            );
+
+            if (matchedBlog) {
+              // Set blog category
+              const categoryEl = document.querySelector(".blog-category");
+              if (categoryEl) categoryEl.textContent = matchedBlog.category;
+
+              // Set blog title
+              const blogTitleEl = document.querySelector(".blog-title");
+              if (blogTitleEl) blogTitleEl.textContent = matchedBlog.title;
+
+              // Set blog meta
+              const blogMetaEl = document.querySelector(".blog-meta");
+              if (blogMetaEl) {
+                blogMetaEl.innerHTML = `
+              <span><i class="far fa-calendar"></i> ${matchedBlog.date}</span>
+              <span><i class="far fa-clock"></i> ${matchedBlog.readTime}</span>
+              <span><i class="far fa-comment"></i> 12 comments</span>
+            `;
+              }
+            } else {
+              document.querySelector(".blog-title").textContent =
+                "Blog not found.";
+              document.querySelector(".blog-meta").innerHTML = "";
+            }
+          })
+          .catch(() => {
+            document.querySelector(".blog-title").textContent =
+              "Error loading blog.";
+            document.querySelector(".blog-meta").innerHTML = "";
+          });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/data/" + blogLink)
+          .then((response) => response.json())
+          .then((data) => {
+            // Set title
+            const titleObj = data.find((item) => item.title);
+            if (titleObj) {
+              document.querySelector(".blog-title").textContent =
+                titleObj.title;
+            }
+
+            // Process images and content
+            const blogContent = document.querySelector(".blog-content");
+            const headerImageElement =
+              document.querySelector(".blog-header-image");
+            let pCount = 0;
+            let contentImages = [];
+            let otherContent = [];
+
+            // Separate images from other content
+            data.forEach((item) => {
+              if (item.image) {
+                contentImages.push(item);
+              } else {
+                otherContent.push(item);
+              }
+            });
+
+            // Set first image as header if exists
+            if (contentImages.length > 0) {
+              headerImageElement.src = contentImages[0].image;
+              contentImages.shift(); // Remove header image from content images
+            }
+
+            // Process non-image content with image insertion
+            let imageIndex = 0;
+            otherContent.forEach((item) => {
+              if (item.subhead) {
+                blogContent.appendChild(createElement("h2", item.subhead));
+                pCount = 0; // Reset paragraph count after subhead
+              } else if (item.p) {
+                blogContent.appendChild(createElement("p", item.p));
+                pCount++;
+                // Insert image after every 2 paragraphs
+                if (pCount >= 2 && imageIndex < contentImages.length) {
+                  blogContent.appendChild(
+                    createImage(contentImages[imageIndex].image)
+                  );
+                  imageIndex++;
+                  pCount = 0; // Reset counter after image insertion
+                }
+              } else if (item.quote) {
+                if (item.quote.trim() !== "") {
+                  const blockquote = createElement(
+                    "blockquote",
+                    item.quote.replace(/^["'“”]|["'“”]$/g, "")
+                  );
+                  blockquote.style.fontWeight = "bold";
+                  blockquote.style.fontSize = "1.2em";
+                  blogContent.appendChild(blockquote);
+                }
+              } else if (item.points) {
+                if (item.points.trim() !== "") {
+                  const p = document.createElement("p");
+                  if (/^\d+\./.test(item.points)) {
+                    const strong = document.createElement("strong");
+                    strong.textContent = item.points;
+                    p.appendChild(strong);
+                  } else {
+                    p.textContent = item.points;
+                  }
+                  blogContent.appendChild(p);
+                }
+              }
+            });
+
+            // Add any remaining images at the end
+            while (imageIndex < contentImages.length) {
+              blogContent.appendChild(
+                createImage(contentImages[imageIndex].image)
+              );
+              imageIndex++;
+            }
+          })
+          .catch((error) => {
+            console.error("Error loading blog:", error);
+            document.querySelector(".blog-title").textContent =
+              "Error Loading Blog";
+            document.querySelector(".blog-content").innerHTML =
+              "<p>Could not load blog content. Please try again later.</p>";
+          });
+
+        // Helper functions
+        function createElement(tag, text) {
+          const el = document.createElement(tag);
+          el.textContent = text;
+          return el;
+        }
+
+        function createImage(src) {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = "Blog content image";
+          img.classList.add("content-image");
+          return img;
+        }
+      });
+    </script>
+    <!-- AUTHOR BIO -->
+    <div class="author-bio">
+      <img
+        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80"
+        alt="Bonita Fernandes"
+        class="author-image"
+      />
+      <div class="author-info">
+        <h4>Bonita Fernandes</h4>
+        <p>
+          Bonita is a holistic therapist specializing in mindfulness-based
+          approaches to relationship healing. With over 12 years of experience,
+          she blends traditional psychotherapy with energy work to help clients
+          cultivate deeper connections.
+        </p>
+      </div>
+    </div>
+
+    <!-- RELATED POSTS -->
+    <!-- <section class="related-posts">
+      <h3 class="related-title">Continue Your Journey</h3>
+
+      <div class="related-grid">
+        <div class="related-card">
+          <a href="#" style="text-decoration: none; color: inherit">
+            <img
+              src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+              alt="Nature"
+              style="width: 100%; height: 200px; object-fit: cover"
+            />
+            <div style="padding: 20px">
+              <span
+                style="
+                  font-family: 'Montserrat';
+                  font-size: 0.8rem;
+                  color: var(--color-secondary);
+                "
+                >Nature Therapy</span
+              >
+              <h4 style="font-family: 'Playfair Display'; margin: 10px 0">
+                Grounding in Earth's Wisdom
+              </h4>
+            </div>
+          </a>
+        </div>
+
+        <div class="related-card">
+          <a href="#" style="text-decoration: none; color: inherit">
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Journaling"
+              style="width: 100%; height: 200px; object-fit: cover"
+            />
+            <div style="padding: 20px">
+              <span
+                style="
+                  font-family: 'Montserrat';
+                  font-size: 0.8rem;
+                  color: var(--color-secondary);
+                "
+                >Self-Reflection</span
+              >
+              <h4 style="font-family: 'Playfair Display'; margin: 10px 0">
+                The Healing Power of Journaling
+              </h4>
+            </div>
+          </a>
+        </div>
+
+        <div class="related-card">
+          <a href="#" style="text-decoration: none; color: inherit">
+            <img
+              src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1520&q=80"
+              alt="Yoga"
+              style="width: 100%; height: 200px; object-fit: cover"
+            />
+            <div style="padding: 20px">
+              <span
+                style="
+                  font-family: 'Montserrat';
+                  font-size: 0.8rem;
+                  color: var(--color-secondary);
+                "
+                >Somatics</span
+              >
+              <h4 style="font-family: 'Playfair Display'; margin: 10px 0">
+                Releasing Trauma Through the Body
+              </h4>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- FOOTER (copy from previous HTML) -->
+
+    <style>
+      .footer {
+        background: white;
+        color: #5a4a42;
+        padding: 4rem 5% 2rem;
+        font-family: "Montserrat", sans-serif;
+        border-top-right-radius: 2cap;
+        border-top-left-radius: 2cap;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+        max-width: 1200px;
+        margin: 0 auto 3rem;
+      }
+
+      .footer-logo {
+        font-family: 'Gistesy', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        color: #5a4a42;
+        text-decoration: none;
+      }
+
+      .footer-about p {
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #5a4a42;
+      }
+
+      .social-links a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .footer-links h3,
+      .footer-contact h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .footer-links h3:after,
+      .footer-contact h3:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: #5a4a42;
+        opacity: 0.7;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: #5a4a42;
+        text-decoration: none;
+        transition: all 0.3s;
+        opacity: 0.9;
+        font-size: 0.95rem;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        transform: translateX(5px);
+      }
+
+      .contact-info {
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .contact-info i {
+        margin-right: 0.8rem;
+        color: #5a4a42;
+        margin-top: 3px;
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+
+      .contact-info p {
+        opacity: 0.9;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        opacity: 0.8;
+        font-size: 0.85rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+        .footer-container {
+          gap: 2rem;
+        }
+
+        .footer-logo {
+          font-size: 2rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer {
+          padding: 3rem 5% 2rem;
+        }
+
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+
+    <!-- Same Footer as Original -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <a href="#" class="footer-logo" style="color: #db88a4"
+            >Bonita Fernandes</a
+          >
+          <p>
+            Creating a sanctuary of healing and transformation through
+            compassionate therapy and spiritual guidance.
+          </p>
+          <div class="social-links">
+            <a
+              href="https://www.instagram.com/beingbeautiful.counsellor?igsh=bGd6cTkzamtpd2Jt"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.facebook.com/share/1626QR8RMo/"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <div class="contact-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Goa , India</p>
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-phone-alt"></i>
+            <p>968 963 7546</p>
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-envelope"></i>
+            <p>bonitafrnnds@gmail.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Bonita Fernandes. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      .float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+      }
+
+      .my-float {
+        margin-top: 16px;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <a
+      href="https://api.whatsapp.com/send?phone=8762529770&text=Hello%20there%2C%20I%20would%20like%20to%20have%20more%20details
+"
+      class="float"
+      target="_blank"
+    >
+      <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    <script>
+      // Mobile menu functionality (same as previous)
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.getElementById("hamburger");
+        const mobileNav = document.getElementById("mobileNav");
+
+        hamburger.addEventListener("click", function () {
+          mobileNav.classList.toggle("active");
+          hamburger.innerHTML = mobileNav.classList.contains("active")
+            ? '<i class="fas fa-times"></i>'
+            : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll(".mobile-nav a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileNav.classList.remove("active");
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

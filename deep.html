@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serene Therapy Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --color1: #738fbd;
+            --color2: #a8c3d4;
+            --color3: #dbd6df;
+            --color4: #eec6c7;
+            --color5: #db88a4;
+            --color6: #cc8eb1;
+            --text-dark: #333;
+            --text-light: #f8f9fa;
+            --bg-soft: #f8f5fa;
+            --bg-light: #fefcff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--bg-soft);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            color: var(--color1);
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background-color: rgba(248, 245, 250, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(115, 143, 189, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color1);
+            text-decoration: none;
+            font-family: 'Lora', serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--color1);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color5);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--color5);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--color1);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(115, 143, 189, 0.2), rgba(168, 195, 212, 0.3)), 
+                        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-dark);
+            padding: 0 5%;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(115, 143, 189, 0.2);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--color1);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-dark);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--color4), var(--color5));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(219, 136, 164, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(219, 136, 164, 0.6);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 6rem 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--color1), var(--color5));
+            border-radius: 2px;
+        }
+        
+        /* Services */
+        .services {
+            background-color: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=10') center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(115, 143, 189, 0.1);
+            border: 1px solid rgba(115, 143, 189, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(115, 143, 189, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--color1), var(--color5));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Therapists */
+        .therapists {
+            background-color: var(--bg-soft);
+            position: relative;
+        }
+        
+        .therapists:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(168, 195, 212, 0.1), rgba(219, 136, 164, 0.1));
+            z-index: 0;
+        }
+        
+        .therapists-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 2rem 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .therapist-card {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(115, 143, 189, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .therapist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(115, 143, 189, 0.2);
+        }
+        
+        .therapist-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(115, 143, 189, 0.2);
+        }
+        
+        .therapist-card h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .therapist-card p {
+            color: var(--color5);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--bg-light);
+            position: relative;
+        }
+        
+        .testimonials:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=10') center/cover;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(115, 143, 189, 0.1);
+            margin: 0 1rem;
+            position: relative;
+            border: 1px solid rgba(115, 143, 189, 0.1);
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--color4);
+            opacity: 0.3;
+            font-family: serif;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            color: var(--text-dark);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 2px solid var(--color4);
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+            color: var(--color1);
+        }
+        
+        .author-info p {
+            color: var(--color5);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(to right, var(--color1), var(--color6));
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            color: white;
+        }
+        
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--color5);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-links h3:after, .footer-contact h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color4);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            opacity: 0.9;
+        }
+        
+        .footer-links a:hover {
+            color: var(--color4);
+            opacity: 1;
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 0.8rem;
+            color: var(--color4);
+            margin-top: 3px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.5s ease;
+                z-index: 999;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+            
+            .nav-links a {
+                color: var(--color1);
+                font-size: 1.2rem;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 1000;
+            }
+            
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-content {
+                padding: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">Serene Therapy</a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Therapists</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Find Your Path to Peace</h1>
+            <p>Professional therapy in a warm, welcoming environment designed to help you heal and grow.</p>
+            <a href="#" class="btn">Begin Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services">
+        <h2 class="section-title">Our Healing Services</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h3>Individual Therapy</h3>
+                <p>Personalized one-on-one sessions focused on your unique needs and personal growth.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Couples Counseling</h3>
+                <p>Strengthen your relationship through improved communication and understanding.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Anxiety & Depression</h3>
+                <p>Evidence-based approaches to help manage and overcome emotional challenges.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <h3>Online Sessions</h3>
+                <p>Professional therapy from the comfort of your home via secure video sessions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Therapists Section -->
+    <section class="section therapists">
+        <h2 class="section-title">Our Compassionate Team</h2>
+        <div class="therapists-container">
+            <div class="therapist-card">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=60" alt="Dr. Sarah Johnson" class="therapist-img">
+                <h3>Dr. Sarah Johnson</h3>
+                <p>Clinical Psychologist</p>
+                <a href="#" class="btn">Read Bio</a>
+            </div>
+            <div class="therapist-card">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=60" alt="Michael Chen" class="therapist-img">
+                <h3>Michael Chen</h3>
+                <p>Marriage & Family Therapist</p>
+                <a href="#" class="btn">Read Bio</a>
+            </div>
+            <div class="therapist-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=60" alt="Dr. Angela Martinez" class="therapist-img">
+                <h3>Dr. Angela Martinez</h3>
+                <p>Cognitive Behavioral Therapist</p>
+                <a href="#" class="btn">Read Bio</a>
+            </div>
+            <div class="therapist-card">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=60" alt="David Wilson" class="therapist-img">
+                <h3>David Wilson</h3>
+                <p>Trauma Specialist</p>
+                <a href="#" class="btn">Read Bio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <h2 class="section-title">Client Experiences</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <p class="testimonial-text">Serene Therapy Center provided me with tools I'll use for life. My therapist created a safe space where I could be completely honest without fear of judgment. After six months, I feel like a different person.</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=60" alt="Emily R." class="author-img">
+                    <div class="author-info">
+                        <h4>Emily R.</h4>
+                        <p>Anxiety Management</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <a href="#" class="footer-logo">Serene Therapy</a>
+                <p>Providing compassionate mental health care with a personalized approach since 2012. Our team is dedicated to your wellbeing.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1626QR8RMo/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/beingbeautiful.counsellor?igsh=bGd6cTkzamtpd2Jt"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Therapists</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>456 Harmony Lane, Suite 300<br>Portland, OR 97205</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>(503) 555-6789</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <p>care@serenetherapy.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Serene Therapy Center. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+      .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=8762529770&text=Hello%20there%2C%20I%20would%20like%20to%20have%20more%20details
+" class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "The Art of Being P",
+        "category": "Mindfulness",
+        "excerpt": "The Art of Being Present: How Mindfulness Transforms Relationships",
+        "date": "May 28, 2025",
+        "readTime": "9 min read",
+        "image": "/static/images/d043ead28a914d11aa2b73917c5f2737.png",
+        "link": "blog10.json"
+    },
+    {
+        "id": 2,
+        "title": "The Art of Being P",
+        "category": "Mindfulness",
+        "excerpt": "The Art of Being Present: How Mindfulness Transforms Relationships",
+        "date": "May 28, 2025",
+        "readTime": "9 min read",
+        "image": "/static/images/fb4f3296b8c944159a22f07a69df54cd.png",
+        "link": "blog11.json"
+    },
+    {
+        "id": 3,
+        "title": "The Art of Being P",
+        "category": "Mindfulness",
+        "excerpt": "The Art of Being Present: Hoskdnkmdks",
+        "date": "May 28, 2025",
+        "readTime": "5 min read",
+        "image": "/static/images/863f1f36defa44a0a02794da39989588.png",
+        "link": "blog12.json"
+    }
+]

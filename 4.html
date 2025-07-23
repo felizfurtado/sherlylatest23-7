@@ -1,0 +1,2516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bonita Fernandes | Elegant Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <link
+      href="https://db.onlinewebfonts.com/c/1dc7840abb13fcda12aa8d1cb21fb832?family=Agrandir"
+      rel="stylesheet"
+    />
+
+    <link href="https://fonts.cdnfonts.com/css/gistesy" rel="stylesheet" />
+    <style>
+      :root {
+        --color-primary: #5a4a42;
+        --color-secondary: #db88a4;
+        --gradient: linear-gradient(
+          135deg,
+          #738fbd,
+          #a8c3d4,
+          #dbd6df,
+          #eec6c7,
+          #db88a4
+        );
+
+        --gradient2: linear-gradient(
+          135deg,
+          #a8d1e7,
+          #ffbfc5,
+          #eb8db5,
+          #d4a3c4
+        );
+        --bg-color: #fdfcfa;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Playfair Display", serif;
+        background-color: var(--bg-color);
+        color: var(--color-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Header Gradient */
+      .header-gradient {
+        width: 100%;
+        height: 8px;
+        background: var(--gradient);
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+      }
+
+      /* Navigation */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 5%;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: var(--bg-color);
+        backdrop-filter: blur(10px);
+        z-index: 999;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--color-primary);
+        font-weight: 500;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--color-secondary);
+      }
+
+      .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Gistesy", sans-serif;
+        font-size: 2.2rem;
+        color: var(--color-primary);
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .hamburger i {
+        font-size: 1.8rem;
+        color: var(--color-primary);
+      }
+
+      .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(246, 240, 235, 0.98);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 998;
+        transform: translateY(-100%);
+        transition: transform 0.5s ease;
+      }
+
+      .mobile-nav.active {
+        transform: translateY(0);
+      }
+
+      .mobile-nav a {
+        text-decoration: none;
+        color: var(--color-primary);
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-nav a:hover {
+        color: var(--color-secondary);
+      }
+
+      /* Hero Section */
+
+      /* Split Screen Layout */
+      .split-screen {
+        display: flex;
+        min-height: 100vh;
+        /* padding: 100px 5% ; */
+        position: relative;
+      }
+
+      .text-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 5% 0 10%;
+        position: relative;
+        z-index: 2;
+      }
+
+      .image-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10% 0 5%;
+        position: relative;
+      }
+
+      /* Text Styling */
+      .text-content h1 {
+        font-family: "Agrandir";
+        font-size: 5rem;
+        line-height: 1.1;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+      }
+
+      .text-content .tagline {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        color: var(--color-primary);
+        margin-bottom: 2rem;
+        font-weight: 400;
+        line-height: 1.4;
+        max-width: 700px;
+      }
+
+      .text-content p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.3rem;
+        color: var(--color-primary);
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+        max-width: 650px;
+        opacity: 0.9;
+      }
+
+      /* Polaroid-Style Frame with Gradient Border */
+      .profile-image-container {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+        position: relative;
+        top: -10%;
+
+        padding: 15px 15px;
+        border: 15px solid transparent;
+        /* transform: rotate(-3deg); */
+        background: var(--gradient) border-box;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-radius: 4cap;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: black;
+        border-radius: 2cap;
+      }
+
+      .profile-image-container::after {
+        /* content: "Bonita Fernandes"; */
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-family: "Agrandir";
+        color: var(--color-primary);
+        font-size: 2rem;
+        letter-spacing: 1px;
+      }
+
+      /* Button */
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--gradient2);
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 25px #b9b9b9;
+        z-index: 90;
+
+        align-self: flex-start;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--gradient2);
+        height: 100%;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        background: var(--gradient2);
+      }
+
+      /* Decorative Elements */
+      .decorative-circle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.12;
+        z-index: 1;
+      }
+
+      .circle-1 {
+        width: 400px;
+        height: 400px;
+        background: var(--gradient);
+        top: 10%;
+        right: 10%;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .circle-2 {
+        width: 300px;
+        height: 300px;
+        background: var(--gradient);
+        bottom: 10%;
+        left: 10%;
+        animation: float 10s ease-in-out infinite;
+      }
+
+      /* Watermark */
+      .watermark {
+        position: absolute;
+        font-family: "Playfair Display", serif;
+        font-size: 15rem;
+        font-weight: 700;
+        color: rgba(90, 74, 66, 0.06);
+        z-index: 0;
+        pointer-events: none;
+        white-space: nowrap;
+        right: 0px;
+        bottom: -40px;
+        line-height: 1;
+        user-select: none;
+        overflow: hidden;
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 5rem 5%;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .services-section h2 {
+        text-align: center;
+        font-family: "Agrandir";
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        color: var(--color-primary);
+        margin-bottom: 3rem;
+        font-weight: 500;
+      }
+
+      .services-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+
+      .services-left {
+        flex: 1 1 60%;
+        min-width: 300px;
+      }
+
+      .services-right {
+        flex: 1 1 35%;
+        min-width: 300px;
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(90, 74, 66, 0.1);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .service-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1.5px solid var(--border);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        color: var(--color-primary);
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .service-card p {
+        font-size: 1rem;
+        color: var(--color-primary);
+        opacity: 0.9;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      .how-i-work h3 {
+        font-size: 1.8rem;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+
+      .work-step {
+        display: flex;
+        margin-bottom: 1.5rem;
+      }
+
+      .step-number {
+        width: 30px;
+        height: 30px;
+        background: var(--gradient);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        flex-shrink: 0;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+      }
+
+      .step-content h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--color-primary);
+      }
+
+      .step-content p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.95rem;
+        color: var(--color-primary);
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--gradient2);
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        margin-top: 2rem;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(219, 136, 164, 0.3);
+        background: var(--gradient2);
+      }
+
+      /* Service Card Decorations */
+      /* .ccv {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        position: absolute;
+        opacity: 0.07;
+        rotate: 10deg;
+        left: -5%;
+        top: 18%;
+      }
+
+      .ccd {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        position: absolute;
+        opacity: 0.07;
+        rotate: 260deg;
+        top: 75%;
+        left: 73%;
+      } */
+
+      /* Animations */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-20px) translateX(10px) rotate(2deg);
+        }
+        50% {
+          transform: translateY(10px) translateX(-15px) rotate(-2deg);
+        }
+        75% {
+          transform: translateY(-15px) translateX(5px) rotate(1deg);
+        }
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 1200px) {
+        .polaroid {
+          width: 220px;
+        }
+
+        .text-content h1 {
+          font-size: 4rem;
+        }
+
+        .text-content .tagline {
+          font-size: 1.6rem;
+        }
+
+        .text-content p {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .split-screen {
+          flex-direction: column;
+          padding: 0px 5% !important;
+          min-height: auto;
+        }
+
+        .text-content {
+          padding: 0 5%;
+          order: 2;
+        }
+
+        .image-content {
+          order: 1;
+        }
+
+        .hero-title {
+          font-size: 4rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.6rem;
+        }
+
+        .hero-text {
+          font-size: 1.1rem;
+        }
+
+        .shape-1,
+        .shape-2,
+        .shape-3 {
+          width: 250px;
+          height: 250px;
+        }
+
+        .polaroid {
+          width: 200px;
+          display: none;
+        }
+
+        .profile-image-container {
+          height: 450px;
+        }
+
+        .service-card {
+          flex: 1 1 calc(50% - 2rem);
+          max-width: calc(50% - 2rem);
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          padding: 1.5rem 5%;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        .logo {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 1.9rem;
+        }
+
+        .hero-title {
+          font-size: 3.2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.4rem;
+        }
+
+        .hero-text {
+          font-size: 1rem;
+        }
+
+        .hero-content {
+          padding: 25px;
+        }
+
+        .shape-1,
+        .shape-2,
+        .shape-3 {
+          width: 150px;
+          height: 150px;
+          filter: blur(20px);
+        }
+
+        .polaroid {
+          width: 160px;
+          padding: 10px 10px 30px 10px;
+        }
+
+        .polaroid-img {
+          height: 150px;
+        }
+
+        .text-content h1 {
+          font-size: 3rem;
+        }
+
+        .text-content .tagline {
+          font-size: 1.4rem;
+        }
+
+        .profile-image-container {
+          height: 380px;
+        }
+
+        .service-card {
+          flex: 1 1 100%;
+          max-width: 100%;
+          min-height: 220px;
+        }
+
+        #services h2 {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero {
+          padding: 120px 5% 50px;
+        }
+
+        .hero-title {
+          font-size: 2.8rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .hero-text {
+          font-size: 0.9rem;
+        }
+
+        .hero-btn {
+          padding: 12px 30px;
+          font-size: 0.9rem;
+        }
+
+        .polaroid {
+          width: 140px;
+          position: relative;
+          margin: 20px auto;
+          left: auto;
+          right: auto;
+          bottom: auto;
+        }
+
+        .polaroid-img {
+          height: 120px;
+        }
+
+        .logo {
+          font-size: 1.6rem;
+        }
+
+        .hamburger i {
+          font-size: 1.5rem;
+        }
+
+        .text-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .profile-image-container {
+          height: 320px;
+        }
+
+        #services h2 {
+          font-size: 2.5rem;
+        }
+
+        .text-content {
+          padding: 2rem;
+          order: 2;
+        }
+
+        .image-content {
+          padding: 2rem;
+          order: 1;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .services-container {
+          flex-direction: column;
+        }
+
+        .services-left,
+        .services-right {
+          flex: 1 1 100%;
+        }
+
+        .services-right {
+          order: -1;
+          margin-bottom: 3rem;
+        }
+
+        .services-section h2 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .services-section {
+          padding: 3rem 5%;
+        }
+
+        .services-section h2 {
+          font-size: 2.2rem;
+          margin-bottom: 2rem;
+        }
+
+        .service-card {
+          padding: 1.5rem;
+        }
+
+        .how-i-work h3 {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .services-section h2 {
+          font-size: 2rem;
+        }
+
+        .service-card h3 {
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-gradient"></div>
+
+    <nav>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <div class="nav-links left-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+      </div>
+
+      <div
+        class="logo"
+        style="font-family: 'Gistesy', sans-serif; color: #db88a4"
+      >
+        Bonita Fernandes
+      </div>
+
+      <div class="nav-links right-links">
+        <a href="workshops.html">Workshops</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <style>
+      .hero-btn,
+      .btn {
+        display: inline-block;
+        padding: 13px 40px;
+        background: var(--gradient2);
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 25px #b9b9b9;
+        position: relative;
+        overflow: hidden;
+        z-index: 99999999;
+      }
+
+      .hero-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient2);
+
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(219, 136, 164, 0.4);
+        background: var(--gradient2);
+      }
+
+      .hero-btn:hover::before {
+        opacity: 1;
+      }
+    </style>
+
+    <style>
+      .hero-section {
+        display: flex;
+        min-height: 80vh;
+        width: 100%;
+        padding: 0 10%;
+        align-items: center;
+        background-color: var(--bg-color);
+        position: relative;
+        overflow: hidden;
+        font-family: "Agrandir";
+      }
+
+      .hero-content {
+        flex: 1;
+        padding-right: 100px;
+        z-index: 2;
+        margin-top: 50px;
+      }
+
+      .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        margin-top: 50px;
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        max-height: 68vh;
+        border-radius: 10px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: 20px;
+        line-height: 1.2;
+        text-align: left;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--color-primary);
+        margin-bottom: 25px;
+        font-weight: 400;
+        text-align: left;
+      }
+
+      .hero-text {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 35px;
+        line-height: 1.6;
+        max-width: 600px;
+        text-align: left;
+      }
+
+      .hero-btn:hover {
+        background: var(--gradient2);
+
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .butt {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .s2 {
+        margin-top: 3px;
+      }
+
+      .s2 {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .s2 a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gradient2);
+      }
+
+      .s2 a:hover {
+        background: var(--gradient);
+        transform: translateY(-3px);
+        background: var(--gradient2);
+      }
+
+      /* Responsive styles */
+      @media (max-width: 992px) {
+        .hero-section {
+          flex-direction: column;
+          padding: 80px 5%;
+          text-align: left;
+          border: #5a4a42 3px solid;
+        }
+
+        .hero-content {
+          padding-right: 20px;
+          margin-bottom: 40px;
+          margin-top: 0;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero-image {
+          margin-top: 30px;
+        }
+
+        .hero-title,
+        .hero-subtitle,
+        .hero-text {
+          text-align: left;
+          max-width: 100%;
+        }
+
+        .butt {
+          justify-content: center;
+          width: 100%;
+        }
+
+        .s2 {
+          display: none;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-section {
+          border: #5a4a42 5px solid;
+          padding: 1rem;
+          margin: 0 auto;
+          max-width: calc(100% - 2rem);
+        }
+        .hero-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .hero-text {
+          font-size: 1rem;
+          padding: 0 10px;
+        }
+
+        .hero-btn {
+          padding: 10px 20px;
+        }
+
+        .butt {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+
+    <section class="hero-section">
+      <style>
+        .rectangle {
+          position: absolute;
+          top: 52.5%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 90%;
+          height: 95%;
+          z-index: 3;
+          border: #5a4a42 3px solid;
+          border-radius: 2cap;
+        }
+        @media (max-width: 768px) {
+          .rectangle {
+            width: 94vw;
+            height: 70vh;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .rectangle {
+            top: 51%;
+            left: 50%;
+            width: 96vw;
+            height: 141vh;
+            display: none;
+          }
+        }
+      </style>
+
+      <div class="rectangle"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span>Empowering you to Heal, Grow & Thrive!</span>
+        </h1>
+        <!-- <p class="hero-subtitle">Guiding You Toward Healing and Growth</p> -->
+        <p class="hero-text">
+          A sanctuary for personal transformation, emotional healing, and
+          spiritual alignment. Led by certified life coach and counselor 
+          Bonita Fernandes, we offer a unique blend of therapeutic support and
+          intuitive guidance to help you reconnect with your inner strength and
+          live your most authentic life.
+        </p>
+        <div class="butt">
+          <div class="s2">
+            <a href="https://www.instagram.com/beingbeautiful.counsellor?igsh=bGd6cTkzamtpd2Jt"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1626QR8RMo/"><i class="fab fa-facebook-f"></i></a>
+            
+            
+          </div>
+          <a href="#" class="hero-btn">Begin Your Journey</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img
+          src="WhatsApp Image 2025-04-25 at 7.46.28 PM.jpeg"
+          alt="Peaceful meditation image"
+        />
+      </div>
+    </section>
+
+    <!-- Uncomment to use Font Awesome icons -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+
+    <div class="split-screen">
+      <div class="text-content">
+        <p
+          class="tagline"
+          style="font-family: 'Montserrat', sans-serif; font-weight: 600"
+        >
+          Hi, I am
+        </p>
+        <h1 style="font-family: 'Gistesy', sans-serif; color: #db88a4">
+          Bonita Fernandes
+        </h1>
+        <p class="tagline">Empowering You to Heal, Grow & Thrive</p>
+        <a href="#" class="btn">Explore My Work</a>
+        <br />
+
+        
+        <style>
+            .v1 {
+              display: block;
+            }
+            .v2 {
+              display: none;
+            }
+            .name {
+              font-family: "Agrandir";
+              font-size: 2rem;
+              color: var(--color-primary);
+              text-align: center;
+              margin-top: 10px;
+              position: absolute;
+              top: 67%;
+            }
+  
+            .name2 {
+              font-family: "Agrandir";
+              font-size: 1rem;
+              color: var(--color-primary);
+              text-align: center;
+              margin-top: 10px;
+              position: absolute;
+              top: 73%;
+            }
+  
+            .name3 {
+              font-family: "Agrandir";
+              font-size: 1rem;
+              color: var(--color-primary);
+              text-align: center;
+              margin-top: 10px;
+              position: absolute;
+              top: 73%;
+              display: none;
+            }
+  
+            @media (max-width: 768px) {
+              .name,
+              .watermark {
+                display: none;
+              }
+  
+              .name3{
+                  top: 60%;
+                  /* left: 19%; */
+                   
+                  display: flex;
+                  text-align: center;  
+                  font-weight: 900;
+              }
+
+              .pp{
+                margin-top: 70px;
+              }
+  
+  
+  
+              .v1{
+                  display: none;
+              }
+              .v2 {
+                display: block;
+              }
+            }
+          </style>
+        <div class="profile-image-container v2">
+          <img
+            class="profile-image v2"
+            src="WhatsApp Image 2025-04-25 at 5.45.04 PM.jpeg"
+            alt="Bonita Fernandes"
+          />
+          <br />
+
+        </div>
+
+
+          <center><p class="name3">Life Coach / Psychologist</p></center>
+     
+
+        <p class="pp">
+          With 6+ years of experience in mental wellness, spiritual guidance,
+          and energy work, I offer a heart-centered, holistic approach to
+          personal growth. My mission is to support those seeking clarity,
+          healing, and transformation—through one-on-one counseling, tarot
+          readings, or group workshops.
+        </p>
+        <!-- <p>Blending psychology and spirituality to guide you through life’s challenges.</p> -->
+
+        <div class="decorative-circle circle-1"></div>
+        <div class="decorative-circle circle-2"></div>
+      </div>
+
+      <div class="image-content">
+        <div class="profile-image-container v1">
+          <img
+            class="profile-image v1"
+            src="WhatsApp Image 2025-04-25 at 5.45.04 PM.jpeg"
+            alt="Bonita Fernandes"
+          />
+        </div>
+
+
+        <h2 class="name">Bonita Fernandes</h2>
+        <p class="name2 v1">Life Coach / Psychologist</p>
+      </div>
+
+      <h3 class="watermark">HEALING</h3>
+    </div>
+
+    <section class="services-section">
+      <h2>My Services</h2>
+      <div class="services-container">
+        <div class="services-left">
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h3>Counseling</h3>
+              <p>
+                Safe, confidential sessions to explore your emotions, habits,
+                and goals with personalized support.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h3>Life Coaching</h3>
+              <p>
+                Empowering you to overcome blocks, gain clarity, and move
+                forward with purpose.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-hand-holding-heart"></i>
+              </div>
+              <h3>Energy Readings</h3>
+              <p>
+                A deep dive into your energetic field to reveal hidden patterns
+                and promote healing.
+              </p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-cards"></i>
+              </div>
+              <h3>Tarot Readings</h3>
+              <p>
+                Intuitive guidance through the cards to support your spiritual
+                journey and decision-making.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="services-right">
+          <div class="how-i-work">
+            <h3>How I Work</h3>
+            <div class="work-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Initial Consultation</h4>
+                <p>
+                  We'll start with a free 15-minute call to understand your
+                  needs and see if we're a good fit.
+                </p>
+              </div>
+            </div>
+            <div class="work-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Personalized Approach</h4>
+                <p>
+                  I'll create a customized plan tailored to your unique
+                  situation and goals.
+                </p>
+              </div>
+            </div>
+            <div class="work-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Ongoing Support</h4>
+                <p>
+                  Regular sessions with continuous guidance and adjustments as
+                  you progress.
+                </p>
+              </div>
+            </div>
+            <button class="cta-button">Book a Session</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* Testimonials Section - Strict 100vh */
+      .testimonials-section {
+        height: 100vh;
+        width: 100%;
+        padding: 0 5%;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .testimonials-section h2 {
+        font-family: "Agrandir";
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        color: var(--color-primary);
+        font-weight: 400;
+        position: relative;
+        top: 50px;
+        z-index: 3;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .testimonials-container {
+        width: 100%;
+        max-width: 1000px;
+        position: relative;
+
+        z-index: 2;
+        padding: 0 40px;
+        height: calc(100vh - 200px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .testimonial-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        height: 70%;
+        min-height: 400px;
+      }
+
+      .testimonial-track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform;
+      }
+
+      .testimonial-card {
+        min-width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        border: 1.5px solid var(--border);
+
+      }
+
+      .testimonial-content {
+        background-color: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(8px);
+        border-radius: 18px;
+        padding: 40px;
+        box-shadow: 0 20px 40px -10px rgba(90, 74, 66, 0.08);
+        position: relative;
+        border: 1px solid rgba(219, 136, 164, 0.15);
+        height: auto;
+        max-height: 100%;
+        overflow: auto;
+      }
+
+      .testimonial-content::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-family: "Playfair Display", serif;
+        font-size: 5rem;
+        color: rgba(219, 136, 164, 0.1);
+        line-height: 1;
+        z-index: 0;
+      }
+
+      .testimonial-text {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(1rem, 1.5vw, 1.25rem);
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        position: relative;
+        z-index: 2;
+        font-style: italic;
+        font-weight: 400;
+        max-height: 60%;
+        overflow: auto;
+      }
+
+      .testimonial-author {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: auto;
+      }
+
+      .author-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: var(--gradient);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(168, 195, 212, 0.3);
+      }
+
+      .author-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        color: var(--color-primary);
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+      }
+
+      .author-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        color: var(--color-primary);
+        opacity: 0.7;
+      }
+
+      .slider-nav {
+        display: flex;
+        justify-content: center;
+        margin-top: 1.5rem;
+        z-index: 3;
+      }
+
+      .slider-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(90, 74, 66, 0.15);
+        margin: 0 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .slider-dot.active {
+        background-color: var(--color-secondary);
+        transform: scale(1.2);
+      }
+
+      .slider-arrows {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: calc(100% + 80px);
+        left: -40px;
+        display: flex;
+        justify-content: space-between;
+        z-index: 4;
+        pointer-events: none;
+      }
+
+      .slider-arrow {
+        background-color: rgba(255, 255, 255, 0.92);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        pointer-events: all;
+        box-shadow: 0 5px 20px rgba(90, 74, 66, 0.1);
+        transition: all 0.3s ease;
+        color: var(--color-primary);
+        border: 1px solid rgba(90, 74, 66, 0.08);
+      }
+
+      .slider-arrow:hover {
+        background-color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(90, 74, 66, 0.15);
+        color: var(--color-secondary);
+      }
+
+      .slider-arrow i {
+        font-size: 1.2rem;
+      }
+
+      /* Background Elements */
+      .testimonials-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .testimonial-shape {
+        position: absolute;
+        opacity: 0.08;
+        filter: blur(40px);
+        animation: float 15s ease-in-out infinite;
+      }
+
+      .testimonial-shape-1 {
+        width: 300px;
+        height: 300px;
+        background: #a5c3d5;
+        top: 10%;
+        right: 5%;
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        animation-delay: 0s;
+      }
+
+      .testimonial-shape-2 {
+        width: 250px;
+        height: 250px;
+        background: #db88a4;
+        bottom: 10%;
+        left: 5%;
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        animation-delay: 3s;
+        animation-duration: 18s;
+      }
+
+      .testimonial-shape-3 {
+        width: 200px;
+        height: 200px;
+        background: #738fbd;
+        top: 50%;
+        left: 20%;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        animation-delay: 1.5s;
+        animation-duration: 12s;
+      }
+
+      /* Animations */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-15px) translateX(10px) rotate(3deg);
+        }
+        50% {
+          transform: translateY(10px) translateX(-15px) rotate(-3deg);
+        }
+        75% {
+          transform: translateY(-10px) translateX(5px) rotate(2deg);
+        }
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .testimonials-container {
+          padding: 0 30px;
+          height: calc(100vh - 180px);
+        }
+
+        .slider-arrows {
+          width: calc(100% + 60px);
+          left: -30px;
+        }
+
+        .testimonial-content {
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .testimonials-container {
+          padding: 0 20px;
+          height: calc(100vh - 160px);
+        }
+
+        .slider-arrows {
+          width: calc(100% + 40px);
+          left: -20px;
+        }
+
+        .slider-arrow {
+          width: 45px;
+          height: 45px;
+        }
+
+        .testimonial-content {
+          padding: 25px;
+        }
+
+        .author-avatar {
+          width: 60px;
+          height: 60px;
+          font-size: 1.6rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .testimonials-section {
+          padding: 0 5%;
+        }
+
+        .testimonials-container {
+          height: calc(100vh - 140px);
+        }
+
+        .testimonial-slider {
+          min-height: 350px;
+        }
+
+        .testimonial-content {
+          padding: 20px;
+        }
+
+        .testimonial-content::before {
+          font-size: 4rem;
+          left: 20px;
+          top: 15px;
+        }
+
+        .slider-arrow {
+          width: 40px;
+          height: 40px;
+        }
+
+        .slider-arrow i {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-height: 700px) {
+        .testimonials-section h2 {
+          margin-bottom: 1rem;
+        }
+
+        .testimonials-container {
+          height: calc(100vh - 120px);
+        }
+
+        .testimonial-content {
+          padding: 20px 15px;
+        }
+
+        .testimonial-text {
+          margin-bottom: 1rem;
+          font-size: 0.95rem;
+        }
+
+        .author-avatar {
+          width: 50px;
+          height: 50px;
+          font-size: 1.4rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .author-name {
+          font-size: 1.1rem;
+        }
+
+        .slider-nav {
+          margin-top: 1rem;
+        }
+      }
+    </style>
+
+    <section class="testimonials-section">
+      <div class="testimonials-bg">
+        <div class="testimonial-shape testimonial-shape-1"></div>
+        <div class="testimonial-shape testimonial-shape-2"></div>
+        <div class="testimonial-shape testimonial-shape-3"></div>
+      </div>
+
+      <h2>Client Testimonials</h2>
+
+      <div class="testimonials-container">
+        <div class="slider-arrows">
+          <div class="slider-arrow prev-arrow">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div class="slider-arrow next-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+
+        <div class="testimonial-slider">
+          <div class="testimonial-track">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  Bonita's guidance transformed my life. Her intuitive approach
+                  helped me uncover deep-seated patterns and find clarity in my
+                  relationships. I've never felt more empowered and at peace
+                  with myself.
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar">S</div>
+                  <h4 class="author-name">Sarah Johnson</h4>
+                  <p class="author-title">Life Coaching Client</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  The energy reading session with Bonita was incredibly
+                  insightful. She pinpointed areas I needed to work on with
+                  astonishing accuracy. Since our session, I've experienced
+                  profound shifts in my emotional wellbeing.
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar">M</div>
+                  <h4 class="author-name">Michael Chen</h4>
+                  <p class="author-title">Energy Reading Client</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  Bonita's tarot readings are unlike any I've experienced
+                  before. She combines traditional interpretation with deep
+                  spiritual insight. Each session leaves me with practical
+                  guidance and renewed hope for my journey ahead.
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar">E</div>
+                  <h4 class="author-name">Emma Rodriguez</h4>
+                  <p class="author-title">Tarot Reading Client</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <p class="testimonial-text">
+                  Working with Bonita in counseling has been transformative. She
+                  creates a safe space where I feel truly heard and understood.
+                  Her gentle yet powerful approach has helped me heal wounds I
+                  thought would never mend.
+                </p>
+                <div class="testimonial-author">
+                  <div class="author-avatar">J</div>
+                  <h4 class="author-name">James Wilson</h4>
+                  <p class="author-title">Counseling Client</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slider-nav">
+          <div class="slider-dot active"></div>
+          <div class="slider-dot"></div>
+          <div class="slider-dot"></div>
+          <div class="slider-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      /* CTA Section */
+      .cta-section {
+        max-height: 60vh;
+        width: 100%;
+        padding: 80px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+        border-top-right-radius: 2cap;
+        border-bottom-left-radius: 2cap;
+      }
+
+      .cta-content {
+        max-width: 800px;
+        position: relative;
+        z-index: 3;
+      }
+
+      .cta-section h2 {
+        font-family: "Agrandir";
+        font-size: 3.5rem;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+
+      .cta-section p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.2rem;
+        color: var(--color-primary);
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+        opacity: 0.9;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-btn {
+        display: inline-block;
+        padding: 18px 50px;
+        background: var(--gradient2);
+        color: white;
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+        border-radius: 40px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 25px #b9b9b9;
+
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+      }
+
+      .cta-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient2);
+
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px #b9b9b9;
+        background: var(--gradient2);
+      }
+
+      .cta-btn:hover::before {
+        opacity: 1;
+      }
+
+      .cta-btn i {
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .cta-btn:hover i {
+        transform: translateX(5px);
+      }
+
+      /* Background Elements */
+      .cta-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .cta-shape {
+        position: absolute;
+        opacity: 0.1;
+        filter: blur(30px);
+        animation: float 12s ease-in-out infinite;
+      }
+
+      .cta-shape-1 {
+        width: 300px;
+        height: 300px;
+        background: #a5c3d5;
+        top: 15%;
+        right: 10%;
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        animation-delay: 0s;
+      }
+
+      .cta-shape-2 {
+        width: 250px;
+        height: 250px;
+        background: #db88a4;
+        bottom: 10%;
+        left: 10%;
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        animation-delay: 2s;
+        animation-duration: 14s;
+      }
+
+      /* Floating Emojis */
+      .cta-emoji {
+        position: absolute;
+        font-size: 24px;
+        opacity: 0.15;
+        z-index: 1;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .cta-emoji-1 {
+        top: 20%;
+        left: 15%;
+        animation-delay: 0s;
+      }
+      .cta-emoji-2 {
+        bottom: 25%;
+        right: 20%;
+        animation-delay: 2s;
+      }
+      .cta-emoji-3 {
+        top: 30%;
+        right: 25%;
+        animation-delay: 1s;
+      }
+
+      /* Animations */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) translateX(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-20px) translateX(10px) rotate(2deg);
+        }
+        50% {
+          transform: translateY(10px) translateX(-15px) rotate(-2deg);
+        }
+        75% {
+          transform: translateY(-15px) translateX(5px) rotate(1deg);
+        }
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .cta-section h2 {
+          font-size: 3rem;
+        }
+
+        .cta-section p {
+          font-size: 1.1rem;
+        }
+
+        .cta-btn {
+          padding: 16px 45px;
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .cta-section {
+          min-height: 50vh;
+          padding: 60px 5%;
+        }
+
+        .cta-section h2 {
+          font-size: 2.5rem;
+        }
+
+        .cta-section p {
+          font-size: 1rem;
+          margin-bottom: 2rem;
+        }
+
+        .cta-shape-1,
+        .cta-shape-2 {
+          width: 200px;
+          height: 200px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cta-section h2 {
+          font-size: 2.2rem;
+        }
+
+        .cta-btn {
+          padding: 14px 40px;
+        }
+
+        .cta-shape-1,
+        .cta-shape-2 {
+          width: 150px;
+          height: 150px;
+          filter: blur(20px);
+        }
+
+        .cta-emoji {
+          font-size: 20px;
+        }
+      }
+    </style>
+
+    <section class="cta-section">
+      <div class="cta-bg">
+        <div class="cta-shape cta-shape-1"></div>
+        <div class="cta-shape cta-shape-2"></div>
+      </div>
+
+      <!-- Floating emojis -->
+      <div class="cta-emoji cta-emoji-1">🌸</div>
+      <div class="cta-emoji cta-emoji-2">✨</div>
+      <div class="cta-emoji cta-emoji-3">🌿</div>
+
+      <div class="cta-content">
+        <h2>Ready to Begin Your Journey?</h2>
+        <p>
+          Take the first step towards healing and transformation. Book your
+          session today and discover the peace and clarity you've been seeking.
+        </p>
+        <a href="#" class="cta-btn"
+          >Schedule a Session <i class="fas fa-arrow-right"></i
+        ></a>
+      </div>
+    </section>
+
+    <style>
+      .footer {
+        background: white;
+        color: #5a4a42;
+        padding: 4rem 5% 2rem;
+        font-family: "Montserrat", sans-serif;
+        border-top-right-radius: 2cap;
+        border-top-left-radius: 2cap;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+        max-width: 1200px;
+        margin: 0 auto 3rem;
+      }
+
+      .footer-logo {
+        font-family: "Gistesy", sans-serif;
+        font-size: 2.2rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        color: #5a4a42;
+        text-decoration: none;
+      }
+
+      .footer-about p {
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #5a4a42;
+      }
+
+      .social-links a:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .footer-links h3,
+      .footer-contact h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .footer-links h3:after,
+      .footer-contact h3:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: #5a4a42;
+        opacity: 0.7;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: #5a4a42;
+        text-decoration: none;
+        transition: all 0.3s;
+        opacity: 0.9;
+        font-size: 0.95rem;
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+        transform: translateX(5px);
+      }
+
+      .contact-info {
+        margin-bottom: 1.2rem;
+        display: flex;
+        align-items: flex-start;
+      }
+
+      .contact-info i {
+        margin-right: 0.8rem;
+        color: #5a4a42;
+        margin-top: 3px;
+        opacity: 0.8;
+        font-size: 0.9rem;
+      }
+
+      .contact-info p {
+        opacity: 0.9;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        opacity: 0.8;
+        font-size: 0.85rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: 768px) {
+        .footer-container {
+          gap: 2rem;
+        }
+
+        .footer-logo {
+          font-size: 2rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer {
+          padding: 3rem 5% 2rem;
+        }
+
+        .footer-container {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-about">
+          <a href="#" class="footer-logo" style="color: #db88a4"
+            >Bonita Fernandes</a
+          >
+
+          <p>
+            Creating a sanctuary of healing and transformation through
+            compassionate therapy and spiritual guidance.
+          </p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/beingbeautiful.counsellor?igsh=bGd6cTkzamtpd2Jt"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1626QR8RMo/"><i class="fab fa-facebook-f"></i></a>
+            
+            
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+ <div class="footer-contact">
+              <h3>Contact</h3>
+              <div class="contact-info">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>Goa , India</p>
+              </div>
+              <div class="contact-info">
+                  <i class="fas fa-phone-alt"></i>
+                  <p>968 963 7546 </p>
+              </div>
+              <div class="contact-info">
+                  <i class="fas fa-envelope"></i>
+                  <p>bonitafrnnds@gmail.com</p>
+              </div>
+          </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2023 Bonita Fernandes. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      .float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+      }
+
+      .my-float {
+        margin-top: 16px;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <a
+      href="https://api.whatsapp.com/send?phone=8762529770&text=Hello%20there%2C%20I%20would%20like%20to%20have%20more%20details
+"
+      class="float"
+      target="_blank"
+    >
+      <i class="fa fa-whatsapp my-float"></i>
+    </a>
+
+    <script>
+      // Optional: Add animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const ctaSection = document.querySelector(".cta-section");
+        const ctaContent = document.querySelector(".cta-content");
+
+        // Simple fade-in animation
+        setTimeout(() => {
+          ctaContent.style.opacity = "1";
+          ctaContent.style.transform = "translateY(0)";
+        }, 300);
+
+        // Button hover effect enhancement
+        const ctaBtn = document.querySelector(".cta-btn");
+
+        ctaBtn.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-5px)";
+        });
+
+        ctaBtn.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const track = document.querySelector(".testimonial-track");
+        const cards = document.querySelectorAll(".testimonial-card");
+        const dots = document.querySelectorAll(".slider-dot");
+        const prevBtn = document.querySelector(".prev-arrow");
+        const nextBtn = document.querySelector(".next-arrow");
+
+        let currentIndex = 0;
+        const cardCount = cards.length;
+        let autoSlideInterval;
+        let isAnimating = false;
+        const animationDuration = 600;
+
+        // Initialize slider
+        function initSlider() {
+          updateSliderPosition();
+          startAutoSlide();
+
+          window.addEventListener("resize", function () {
+            updateSliderPosition();
+          });
+        }
+
+        function updateSliderPosition() {
+          const cardWidth = cards[0].offsetWidth;
+          track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+          updateActiveDot();
+        }
+
+        function updateActiveDot() {
+          dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+          });
+        }
+
+        function goToSlide(index) {
+          if (isAnimating || index === currentIndex) return;
+
+          isAnimating = true;
+          currentIndex = (index + cardCount) % cardCount;
+          updateSliderPosition();
+
+          resetAutoSlide();
+
+          setTimeout(() => {
+            isAnimating = false;
+          }, animationDuration);
+        }
+
+        function nextSlide() {
+          goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+          goToSlide(currentIndex - 1);
+        }
+
+        function startAutoSlide() {
+          autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function resetAutoSlide() {
+          clearInterval(autoSlideInterval);
+          startAutoSlide();
+        }
+
+        const slider = document.querySelector(".testimonial-slider");
+        slider.addEventListener("mouseenter", () => {
+          clearInterval(autoSlideInterval);
+        });
+
+        slider.addEventListener("mouseleave", () => {
+          resetAutoSlide();
+        });
+
+        // Event listeners
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlide);
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => goToSlide(index));
+        });
+
+        // Keyboard navigation
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight") nextSlide();
+          else if (e.key === "ArrowLeft") prevSlide();
+        });
+
+        // Touch events
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        track.addEventListener(
+          "touchstart",
+          (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          },
+          { passive: true }
+        );
+
+        track.addEventListener(
+          "touchend",
+          (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+          },
+          { passive: true }
+        );
+
+        function handleSwipe() {
+          const threshold = 50;
+          if (touchEndX < touchStartX - threshold) nextSlide();
+          else if (touchEndX > touchStartX + threshold) prevSlide();
+        }
+
+        initSlider();
+      });
+    </script>
+
+    <script>
+      // Add animation class to title after page load
+      document.addEventListener("DOMContentLoaded", function () {
+        const title = document.getElementById("animated-title");
+        setTimeout(() => {
+          title.classList.add("animate");
+        }, 300);
+
+        const polaroids = document.querySelectorAll(".polaroid");
+        polaroids.forEach((polaroid, index) => {
+          setTimeout(() => {
+            polaroid.style.opacity = "1";
+            polaroid.style.transform = polaroid.style.transform + " scale(1)";
+          }, 500 + index * 200);
+        });
+
+        // Hamburger menu functionality
+        const hamburger = document.getElementById("hamburger");
+        const mobileNav = document.getElementById("mobileNav");
+
+        hamburger.addEventListener("click", function () {
+          mobileNav.classList.toggle("active");
+          if (mobileNav.classList.contains("active")) {
+            hamburger.innerHTML = '<i class="fas fa-times"></i>';
+          } else {
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+          }
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileNav.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileNav.classList.remove("active");
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+
+ [     {
+        "id": 1,
+        "link": "data/blog1.json",
+        "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+        "alt": "Meditation",
+        "category": "Mindfulness",
+        "title": "The Art of Being Present",
+        "excerpt": "How cultivating mindfulness can transform your relationships with yourself and others.",
+        "date": "June 12, 2023",
+        "readTime": "5 min read"
+      },
+      {
+        "id": 2,
+        "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+        "alt": "Tarot cards",
+        "link": "data/blog1.json",
+        "category": "Intuition",
+        "title": "Tarot as a Mirror of the Soul",
+        "excerpt": "Using archetypes to understand subconscious patterns and facilitate healing.",
+        "date": "May 28, 2023",
+        "readTime": "8 min read"
+      },
+      {
+        "id": 3,
+        "link": "data/blog1.json",
+        "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1520&q=80",
+        "alt": "Yoga",
+        "category": "Somatics",
+        "title": "Releasing Trauma Through the Body",
+        "excerpt": "Gentle movement practices to process emotional memories stored in our tissues.",
+        "date": "April 15, 2023",
+        "readTime": "10 min read"
+      },
+      {
+        "id": 4,
+        "link": "data/blog1.json",
+        "image": "https://images.unsplash.com/photo-1511376777868-611b54f68947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+        "alt": "Energy work",
+        "category": "Energy Healing",
+        "title": "Understanding Your Aura",
+        "excerpt": "A beginner's guide to sensing and cleansing your energetic field for emotional balance.",
+        "date": "March 22, 2023",
+        "readTime": "6 min read"
+      },
+      {
+        "id": 5,
+        "link": "data/blog1.json",
+        "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+        "alt": "Journaling",
+        "category": "Self-Reflection",
+        "title": "The Healing Power of Journaling",
+        "excerpt": "Transformative writing prompts to deepen your self-awareness and growth.",
+        "date": "February 8, 2023",
+        "readTime": "7 min read"
+      },
+      {
+        "id": 6,
+        "link": "data/blog1.json",
+        "image": "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+        "alt": "Nature",
+        "category": "Nature Therapy",
+        "title": "Grounding in Earth's Wisdom",
+        "excerpt": "How connecting with nature can restore our nervous system and spiritual center.",
+        "date": "January 15, 2023",
+        "readTime": "9 min read"
+      }
+    ]

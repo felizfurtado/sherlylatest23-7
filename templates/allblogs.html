@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Blogs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e0e7ff;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --dark-gray: #374151;
+            --white: #ffffff;
+            --radius: 0.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            min-height: 100vh;
+        }
+
+        .app-container {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--white);
+            border-right: 1px solid #e5e7eb;
+            padding: 1.5rem;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            color: var(--gray);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .nav-link svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .main-content {
+            padding: 2rem;
+        }
+
+        .blog-container {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul#blogList {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul#blogList li {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+            transition: background 0.3s;
+        }
+
+        ul#blogList li:hover {
+            background-color: var(--light-gray);
+        }
+
+        @media (max-width: 1024px) {
+            .app-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">DOCX Converter</div>
+            <nav class="nav-links">
+                <a href="/" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                    Upload DOCX
+                </a>
+                <a href="/allblogs" class="nav-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    All Blogs
+                </a>
+                <a href="#" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Settings
+                </a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="blog-container">
+                <h1>📚 All Blog Titles</h1>
+                <ul id="blogList">
+                    <li>Loading...</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        fetch('/data/allblogs.json')
+            .then(res => res.json())
+            .then(data => {
+                const list = document.getElementById('blogList');
+                list.innerHTML = ''; // Clear "Loading..."
+
+                if (data.length === 0) {
+                    list.innerHTML = "<li>No blogs found.</li>";
+                    return;
+                }
+
+                data.forEach(blog => {
+                    const li = document.createElement('li');
+                    li.textContent = blog.title || "Untitled Blog";
+                    list.appendChild(li);
+                });
+            })
+            .catch(err => {
+                console.error("Failed to load blog titles:", err);
+                document.getElementById('blogList').innerHTML = "<li style='color: red;'>Failed to load blogs.</li>";
+            });
+    </script>
+</body>
+</html>

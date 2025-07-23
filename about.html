@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Bonita Fernandes | Holistic Therapist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link
+    href="https://db.onlinewebfonts.com/c/1dc7840abb13fcda12aa8d1cb21fb832?family=Agrandir"
+    rel="stylesheet"
+  />
+
+  <link href="https://fonts.cdnfonts.com/css/gistesy" rel="stylesheet" />
+    <style>
+      :root {
+        --color-primary: #5a4a42;
+        --color-secondary: #db88a4;
+        --gradient: linear-gradient(135deg, #738fbd, #a8c3d4, #dbd6df, #eec6c7, #db88a4);
+        --gradient2: linear-gradient(135deg, #A8D1E7,  #FFBFC5, #EB8DB5, #D4A3C4);     
+        --bg-color: #fdfcfa;
+
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Playfair Display", serif;
+        background-color: var(--bg-color);
+        color: var(--color-primary);
+        line-height: 1.6;
+      }
+
+      /* Header/Nav (Same as original) */
+      .header-gradient {
+        width: 100%;
+        height: 8px;
+        background: var(--gradient);
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 5%;
+        position: fixed;
+        width: 100%;
+        background-color: var(--bg-color);
+        backdrop-filter: blur(10px);
+        z-index: 999;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--color-primary);
+        font-weight: 500;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--color-secondary);
+      }
+
+      .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Gistesy', sans-serif;
+        font-size: 2.2rem;
+        color: var(--color-primary);
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(246, 240, 235, 0.98);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 998;
+        transform: translateY(-100%);
+        transition: transform 0.5s ease;
+      }
+
+      .mobile-nav.active {
+        transform: translateY(0);
+      }
+
+      .mobile-nav a {
+        text-decoration: none;
+        color: var(--color-primary);
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-nav a:hover {
+        color: var(--color-secondary);
+      }
+
+      /* About Hero Section */
+      .about-hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 180px 5% 100px;
+        position: relative;
+        overflow: hidden;
+        background: var(--bg-color);
+      }
+
+      .about-hero-content {
+        max-width: 800px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .about-hero h1 {
+        font-family: "Agrandir";
+
+font-size: 5.5rem;  
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+        color: var(--color-primary);
+      }
+
+      .about-hero p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.3rem;
+        color: var(--color-primary);
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        line-height: 1.8;
+      }
+
+      /* Story Section */
+      .story-section {
+        padding: 50px 5%;
+        position: relative;
+      }
+
+      .split-section {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 50px;
+      }
+
+      .text-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .image-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .text-content h2 {
+        font-family: "Agrandir";
+        font-size: 3.5rem;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+      }
+
+      .text-content p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.1rem;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+        opacity: 0.9;
+      }
+
+      .signature {
+        font-family: "Agrandir";
+        font-size: 2.5rem;
+        color: var(--color-secondary);
+        margin-top: 1rem;
+      }
+
+      .profile-image-about {
+        width: 100%;
+        max-width: 450px;
+        height: 550px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 5px;
+        box-shadow: 0 20px 40px -10px rgba(90, 74, 66, 0.15);
+      }
+
+      /* Creative Approach Section */
+      .creative-approach {
+        padding: 50px 5%;
+        background: var(--bg-color);
+        position: relative;
+      }
+
+      .approach-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .approach-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title {
+        font-family: "Agrandir";
+        font-size: 4rem;
+        color: var(--color-primary);
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+
+      .section-subtitle {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.2rem;
+        color: var(--color-primary);
+        opacity: 0.8;
+      }
+
+      .approach-path {
+        position: relative;
+        max-width: 800px;
+        margin: 60px auto 0;
+      }
+
+      .pathway-line {
+        position: absolute;
+        left: 50px;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--gradient);
+        z-index: 1;
+      }
+
+      .approach-step {
+        position: relative;
+        display: flex;
+        margin-bottom: 60px;
+        z-index: 2;
+        background: var(--bg-color);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(90,74,66,0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .approach-step:hover {
+        transform: translateY(-5px);
+      }
+
+      .step-icon {
+        font-size: 2.5rem;
+        margin-right: 25px;
+        flex-shrink: 0;
+      }
+
+      .step-content h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--color-primary);
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+      }
+
+      .step-content p {
+        font-family: "Montserrat", sans-serif;
+        color: var(--color-primary);
+        opacity: 0.9;
+        line-height: 1.7;
+      }
+
+      /* Creative Credentials Section */
+      .creative-credentials {
+        padding: 100px 5%;
+        background: #fdfcfa;
+      }
+
+      .credentials-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+      }
+
+      .certificate-display {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .certificate {
+        background: #fdfcfa;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 10px 30px rgba(90,74,66,0.1);
+        max-width: 350px;
+      }
+
+      .certificate-border {
+        border: 2px dashed var(--color-secondary);
+        padding: 30px;
+        text-align: center;
+        position: relative;
+      }
+
+      .certificate-content h4 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .certificate-content p {
+        font-family: "Montserrat", sans-serif;
+        opacity: 0.8;
+      }
+
+      .seal {
+        position: absolute;
+        right: 20px;
+        bottom: 15px;
+        font-size: 1.8rem;
+      }
+
+      .credentials-badges {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .badge-column {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .badge {
+        display: flex;
+        align-items: center;
+        background: white;
+        padding: 15px 20px;
+        border-radius: 50px;
+        margin-bottom: 15px;
+        box-shadow: 0 5px 15px rgba(90,74,66,0.05);
+        transition: transform 0.3s ease;
+      }
+
+      .badge:hover {
+        transform: translateY(-3px);
+      }
+
+      .badge span{
+        font: 0.1rem;
+      }
+
+      .badge-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--gradient);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 1rem;
+      }
+
+      .training-timeline h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+        color: var(--color-primary);
+      }
+
+      .timeline-path {
+        position: relative;
+        padding-left: 40px;
+      }
+
+      .timeline-path::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--gradient);
+      }
+
+      .timeline-event {
+        position: relative;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+      }
+
+      .event-year {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        width: 60px;
+      }
+
+      .event-dot {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: white;
+        border: 3px solid var(--bg-color);
+        margin: 0 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .event-desc {
+        font-family: "Montserrat", sans-serif;
+        background: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(90,74,66,0.05);
+        flex-grow: 1;
+        font-size: 0.9rem;
+      }
+
+      /* Floating Shapes (same as original) */
+      .floating-shape {
+        position: absolute;
+        opacity: 0.1;
+        filter: blur(40px);
+        animation: float 12s ease-in-out infinite;
+      }
+
+      .shape-1 {
+        width: 400px;
+        height: 400px;
+        background: #a5c3d5;
+        top: 15%;
+        right: 10%;
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+
+      }
+
+      .shape-2 {
+        width: 350px;
+        height: 350px;
+        background: #db88a4;
+        bottom: 10%;
+        left: 10%;
+        animation-delay: 2s;
+        animation-duration: 14s;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+        25% { transform: translateY(-20px) translateX(10px) rotate(2deg); }
+        50% { transform: translateY(10px) translateX(-15px) rotate(-2deg); }
+        75% { transform: translateY(-15px) translateX(5px) rotate(1deg); }
+      }
+
+      /* Footer (same as original) */
+      .footer {
+        background: white;
+        color: #5a4a42;
+        padding: 4rem 5% 2rem;
+        font-family: "Montserrat", sans-serif;
+        border-top-right-radius: 2cap;
+        border-top-left-radius: 2cap;
+      }
+
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-logo {
+        font-family: 'Gistesy', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        color: #5a4a42;
+        text-decoration: none;
+      }
+
+      .footer-about p {
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #5a4a42;
+      }
+
+      .social-links a:hover {
+        background-color: var(--color-secondary);
+        transform: translateY(-3px);
+      }
+
+      .footer-links h3, 
+      .footer-contact h3 {
+          font-family: "Playfair Display", serif;
+          font-size: 1.3rem;
+          margin-bottom: 1.5rem;
+          position: relative;
+          padding-bottom: 0.5rem;
+          font-weight: 500;
+      }
+
+      .footer-links h3:after, 
+      .footer-contact h3:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 50px;
+          height: 2px;
+          background-color: #5a4a42;
+          opacity: 0.7;
+      }
+
+      .footer-links ul {
+          list-style: none;
+      }
+
+      .footer-links li {
+          margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+          color: #5a4a42;
+          text-decoration: none;
+          transition: all 0.3s;
+          opacity: 0.9;
+          font-size: 0.95rem;
+          display: inline-block;
+      }
+
+      .footer-links a:hover {
+          opacity: 1;
+          transform: translateX(5px);
+      }
+
+      .contact-info {
+          margin-bottom: 1.2rem;
+          display: flex;
+          align-items: flex-start;
+      }
+
+      .contact-info i {
+          margin-right: 0.8rem;
+          color: #5a4a42;
+          margin-top: 3px;
+          opacity: 0.8;
+          font-size: 0.9rem;
+      }
+
+      .contact-info p {
+          opacity: 0.9;
+          font-size: 0.95rem;
+          line-height: 1.6;
+      }
+
+      .copyright {
+          text-align: center;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.15);
+          opacity: 0.8;
+          font-size: 0.85rem;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+        .split-section {
+          flex-direction: column;
+        }
+        
+        .credentials-container {
+          grid-template-columns: 1fr;
+        }
+        
+        .about-hero h1 {
+          font-size: 4rem;
+        }
+        
+        .section-title {
+          font-size: 3.5rem;
+        }
+        
+        .approach-step {
+          flex-direction: column;
+        }
+        
+        .step-icon {
+          margin-right: 0;
+          margin-bottom: 15px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        .about-hero h1 {
+          font-size: 3.5rem;
+        }
+        
+        .section-title {
+          font-size: 3rem;
+        }
+        
+        .text-content h2 {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .about-hero {
+          padding: 150px 5% 80px;
+        }
+        
+        .about-hero h1 {
+          font-size: 2.8rem;
+        }
+        
+        .about-hero p {
+          font-size: 1.1rem;
+        }
+        
+        .section-title {
+          font-size: 2.5rem;
+        }
+        
+        .text-content h2 {
+          font-size: 2.5rem;
+        }
+        
+        .credentials-badges {
+          flex-direction: column;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="header-gradient"></div>
+
+    <nav>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+
+
+
+      <div class="nav-links left-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" >About</a>
+        <a href="services.html">Services</a>
+      </div>
+
+      <div class="logo" style="font-family: 'Gistesy', sans-serif !important; color: #db88a4;">
+        Bonita  Fernandes
+      </div>
+
+
+
+      <div class="nav-links right-links">
+        <a href="workshops.html">Workshops</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="contact.html" >Contact</a>
+      </div>
+    </nav>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html" >Contact</a>
+    </div>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+      <div class="floating-shape shape-1"></div>
+      <div class="floating-shape shape-2"></div>
+      
+      <div class="about-hero-content">
+        <h1>My Healing Journey</h1>
+        <p>For over a decade, I've guided clients toward emotional freedom and spiritual awakening through compassionate therapy and intuitive wisdom.</p>
+      </div>
+
+
+
+
+</section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+      <div class="split-section">
+        <div class="text-content">
+          <h2>My Story</h2>
+          <p>Being Beautiful was born from my personal path — one marked by deep introspection, emotional healing, and a longing to feel worthy. Like you, I’ve known struggle, self-doubt, and the desire for a safe space to simply be.</p>
+          <p>Today, I offer that space — for you to explore your thoughts, nurture your soul, and remember who you are.</p>
+          <p>With experience in counselling, energy work, and intuitive practices, I blend therapeutic tools with spiritual insight, meeting you wherever you are on your journey.
+This isn’t just what I do — it’s who I am. My deepest calling is to hold space where you can feel safe, supported, and seen.
+So come as you are. Healing doesn’t require perfection — just presence.
+You’re already on your way to something beautiful..</p>
+<p>With love always,</p>
+          <div class="signature" style="font-family: 'Gistesy', sans-serif !important; color: #db88a4;">Bonita Fernandes</div>
+        </div>
+        <div class="image-content">
+          <img src="IMG_4065.jpg" alt="Bonita Fernandes in nature" class="profile-image-about">
+        </div>
+
+      </div>
+
+
+    </section>
+
+<style>
+  /* Mobile Approach Steps - Centered Cards */
+@media (max-width: 768px) {
+
+  .creative-approach {
+    padding: 40px 0; /* Remove side padding from section */
+  }
+
+  .approach-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .approach-path {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .approach-step {
+    width: calc(100% - 40px); /* Account for container padding */
+    max-width: 400px;
+    margin: 0 auto 30px;
+    padding: 25px;
+  }
+
+  .pathway-line {
+    left: calc(50% + 10px); /* Adjusted for container padding */
+  }
+
+
+}
+</style>
+
+    <!-- Creative Approach Section -->
+    <section class="creative-approach">
+      <div class="floating-shape shape-1" style="top: 20%; left: 5%;"></div>
+      <div class="floating-shape shape-2" style="bottom: 15%; right: 5%;"></div>
+      
+      <div class="approach-container">
+        <div class="approach-header">
+          <h2 class="section-title">How I Work</h2>
+          <p class="section-subtitle">Blending science and soul for transformative healing</p>
+        </div>
+
+        <div class="approach-path">
+          <div class="pathway-line"></div>
+          
+          <div class="approach-step first-step">
+            <div class="step-icon">1.</div>
+            <div class="step-content">
+              <h3>Initial Connection</h3>
+              <p>We start with a relaxed conversation to get to know each other and understand your current needs and goals. This helps ensure we’re the right fit for working together.</p>
+            </div>
+          </div>
+
+          <div class="approach-step second-step">
+            <div class="step-icon">2.</div>
+            <div class="step-content">
+              <h3>Tailored Support</h3>
+              <p>Based on what you share, I design a customized approach tailored just for you—whether that’s therapy, energy readings, or a blend—focused on your growth and healing.</p>
+            </div>
+          </div>
+
+          <div class="approach-step third-step">
+            <div class="step-icon">3.</div>
+            <div class="step-content">
+              <h3>Ongoing Guidance</h3>
+              <p>Through regular sessions, we gently explore your inner world, track progress, and adjust the approach as needed to keep you feeling empowered and grounded.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Creative Credentials Section -->
+    <section class="creative-credentials">
+      <div class="credentials-container">
+        <div class="certificate-display">
+          <div class="certificate">
+            <div class="certificate-border">
+              <div class="certificate-content">
+                <h4>Licensed Therapist</h4>
+                <p>Cambridge university , England</p>
+                <div class="seal">⚜️</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <style>
+
+            .badge span {
+  font-size: 0.9rem; /* or 0.7rem, adjust as needed */
+}
+          </style> -->
+          
+          <div class="credentials-badges">
+  <div class="badge-column">
+    <div class="badge">
+      <div class="badge-icon"><i class="fas fa-heart-broken"></i></div>
+      <span>Transformational Healing (2019)</span>
+    </div>
+    <div class="badge">
+      <div class="badge-icon"><i class="fas fa-dove"></i></div>
+      <span>Spiritual Life Coach Certified (2021)</span>
+    </div>
+  </div>
+  <div class="badge-column">
+    <div class="badge">
+      <div class="badge-icon"><i class="fas fa-eye"></i></div>
+      <span>Energy Reading Practitioner (2022)</span>
+    </div>
+    <div class="badge">
+      <div class="badge-icon"><i class="fas fa-brain"></i></div>
+      <span>CBT Certified Practitioner (2025)</span>
+    </div>
+  </div>
+</div>
+
+        </div>
+
+        <style>
+          @media (max-width: 768px) {
+            .event-dot{
+              display: none;
+            }
+          }
+        </style>
+
+        <div class="training-timeline">
+          <h3>My Healing Journey</h3>
+          <div class="timeline-path">
+  <div class="timeline-event">
+    <div class="event-year">2019</div>
+    <div class="event-dot" style="color:#fdfcfa;"></div>
+    <div class="event-desc">A New Beginning – I went through a life-changing divorce, which sparked my journey of healing and self-discovery.</div>
+  </div>
+
+  <div class="timeline-event">
+    <div class="event-year">2021</div>
+    <div class="event-dot"></div>
+    <div class="event-desc">Spiritual Life Coach – I transformed my pain into purpose by becoming a certified coach, guiding others to clarity and inner peace.</div>
+  </div>
+
+  <div class="timeline-event">
+    <div class="event-year">2022</div>
+    <div class="event-dot"></div>
+    <div class="event-desc">Energy Reading – I deepened my intuitive skills with energy reading training, learning to sense and support on a deeper level.</div>
+  </div>
+
+  <div class="timeline-event">
+    <div class="event-year">2025</div>
+    <div class="event-dot"></div>
+    <div class="event-desc">CBT Practitioner – I added evidence-based tools to my practice by becoming certified in Cognitive Behavioral Therapy (CBT).</div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+          <div class="footer-about">
+<a href="#" class="footer-logo" style="color: #db88a4;">Bonita Fernandes</a>
+              <p>Creating a sanctuary of healing and transformation through compassionate therapy and spiritual guidance.</p>
+              <div class="social-links">
+                  <a href="https://www.instagram.com/beingbeautiful.counsellor?igsh=bGd6cTkzamtpd2Jt"><i class="fab fa-instagram"></i></a>
+                  <a href="https://www.facebook.com/share/1626QR8RMo/"><i class="fab fa-facebook-f"></i></a>
+                  
+                  
+              </div>
+          </div>
+          <div class="footer-links">
+              <h3>Quick Links</h3>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+              </ul>
+          </div>
+          <div class="footer-contact">
+              <h3>Contact</h3>
+              <div class="contact-info">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>Goa , India</p>
+              </div>
+              <div class="contact-info">
+                  <i class="fas fa-phone-alt"></i>
+                  <p>968 963 7546 </p>
+              </div>
+              <div class="contact-info">
+                  <i class="fas fa-envelope"></i>
+                  <p>bonitafrnnds@gmail.com</p>
+              </div>
+          </div>
+      </div>
+      <div class="copyright">
+          <p>&copy; 2023 Bonita Fernandes. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      .float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<a href="https://api.whatsapp.com/send?phone=8762529770&text=Hello%20there%2C%20I%20would%20like%20to%20have%20more%20details
+" class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
+    <script>
+      // Mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+          const hamburger = document.getElementById('hamburger');
+          const mobileNav = document.getElementById('mobileNav');
+
+          hamburger.addEventListener('click', function() {
+            mobileNav.classList.toggle('active');
+            if (mobileNav.classList.contains('active')) {
+              hamburger.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+              hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+          });
+
+          // Close mobile menu when clicking on a link
+          const mobileLinks = mobileNav.querySelectorAll('a');
+          mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+              mobileNav.classList.remove('active');
+              hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+          });
+      });
+    </script>
+</body>
+</html>

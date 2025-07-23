@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Emotions!!",
+        "category": "Spirituality",
+        "excerpt": "A personal journey of feeling like an option instead of a priority, shaped by childhood experiences and lack of validation. Through self-awareness and healing, the writer learns to embrace their own worth without relying on others’ approval.",
+        "date": "June 23, 2025",
+        "readTime": "5 min read",
+        "image": "/static/images/7cb29e5640f344ac949399bd6c78c38e.png",
+        "link": "blog1.json"
+    },
+    {
+        "id": 2,
+        "title": "Self-Worth Reflection",
+        "category": "Spirituality",
+        "excerpt": "A personal journey of feeling like an option instead of a priority, shaped by childhood experiences and lack of validation. Through self-awareness and healing, the writer learns to embrace their own worth without relying on others’ approval.\r\n\r\n",
+        "date": "June 23, 2025",
+        "readTime": "5 min read",
+        "image": "/static/images/f112ce6ea0534da1b5953ebcdb6477ea.png",
+        "link": "blog2.json"
+    },
+    {
+        "id": 3,
+        "title": "Self-Worth Reflection",
+        "category": "Mindfulness",
+        "excerpt": "hello there",
+        "date": "June 24, 2025",
+        "readTime": "5 min read",
+        "image": "/static/images/f3a745a7ef4840049ba2df187a6ed990.png",
+        "link": "blog3.json"
+    }
+]

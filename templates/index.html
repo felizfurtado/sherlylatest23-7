@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog DOCX to JSON Uploader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #e0e7ff;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --dark-gray: #374151;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 0.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            line-height: 1.5;
+            min-height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: var(--white);
+            border-right: 1px solid #e5e7eb;
+            padding: 1.5rem;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            color: var(--gray);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .nav-link svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .upload-container {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        textarea {
+            min-height: 6rem;
+            resize: vertical;
+        }
+
+        .file-upload {
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+
+        .file-upload-input {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            border: 2px dashed #d1d5db;
+            border-radius: var(--radius);
+            background-color: var(--white);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .file-upload-label svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.5rem;
+            color: var(--gray);
+        }
+
+        .file-upload-text {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .file-selected {
+            display: none;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--dark-gray);
+        }
+
+        .file-cancel-btn {
+            display: none;
+            margin-top: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--danger);
+            font-size: 0.75rem;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius);
+            transition: background-color 0.2s;
+        }
+
+        .file-cancel-btn:hover {
+            background-color: var(--danger-light);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 0.75rem 1.25rem;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #3a56d4;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: var(--white);
+        }
+
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+
+        .btn-secondary {
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e5e7eb;
+        }
+
+        @media (max-width: 1024px) {
+            .app-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .main-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">DOCX Converter</div>
+            <nav class="nav-links">
+                <a href="#" class="nav-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                    Upload DOCX
+                </a>
+                <a href="/allblogs" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    All Blogs
+                </a>
+                <a href="#" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Settings
+                </a>
+            </nav>
+        </aside>
+
+        
+
+        <main class="main-content">
+            <div class="header">
+                <h1 class="page-title">Upload New Blog</h1>
+                <div class="user-menu">
+                    <div class="avatar">B</div>
+                </div>
+            </div>
+
+            <div class="upload-container">
+                <form method="post" enctype="multipart/form-data" id="uploadForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="title">Blog Title</label>
+                            <input type="text" name="title" id="title" required placeholder="Enter blog title">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select name="category" id="category" required>
+                                <option value="">Select a category</option>
+                                <option value="Intuition">Intuition</option>
+                                <option value="Spirituality">Spirituality</option>
+                                <option value="Healing">Healing</option>
+                                <option value="Mindfulness">Mindfulness</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label for="excerpt">Excerpt</label>
+                            <textarea name="excerpt" id="excerpt" required placeholder="Enter a short excerpt for the blog"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="text" name="date" id="date" required value="{{ current_date }}">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="read_time">Read Time</label>
+                            <input type="text" name="read_time" id="read_time" required value="5 min read" placeholder="Estimated read time">
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label>DOCX File</label>
+                            <div class="file-upload">
+                                <input type="file" name="docx_file" id="docxFile" class="file-upload-input" accept=".docx" required>
+                                <label for="docxFile" class="file-upload-label">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>
+                                    <span class="file-upload-text">Choose a DOCX file or drag it here</span>
+                                </label>
+                                <div class="file-selected" id="fileNameDisplay"></div>
+                                <button type="button" class="file-cancel-btn" id="fileCancelBtn">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" style="width: 1rem; height: 1rem;">
+                                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                            Upload & Convert
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+ 
+
+    </div>
+
+    <script>
+        // Set current date as default
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('date').value = today.toLocaleDateString('en-US', options);
+
+        // File input handling
+        const fileInput = document.getElementById('docxFile');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        const fileCancelBtn = document.getElementById('fileCancelBtn');
+        const fileUploadLabel = document.querySelector('.file-upload-label');
+        const fileUploadText = document.querySelector('.file-upload-text');
+
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                const fileName = this.files[0].name;
+                fileNameDisplay.textContent = `Selected: ${fileName}`;
+                fileNameDisplay.style.display = 'block';
+                fileCancelBtn.style.display = 'inline-block';
+                fileUploadText.textContent = 'Change file';
+            }
+        });
+
+        fileCancelBtn.addEventListener('click', function() {
+            fileInput.value = '';
+            fileNameDisplay.style.display = 'none';
+            fileCancelBtn.style.display = 'none';
+            fileUploadText.textContent = 'Choose a DOCX file or drag it here';
+        });
+
+        // Drag and drop functionality
+        fileUploadLabel.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            fileUploadLabel.style.borderColor = '#4361ee';
+            fileUploadLabel.style.backgroundColor = '#e0e7ff';
+        });
+
+        fileUploadLabel.addEventListener('dragleave', () => {
+            fileUploadLabel.style.borderColor = '#d1d5db';
+            fileUploadLabel.style.backgroundColor = '#ffffff';
+        });
+
+        fileUploadLabel.addEventListener('drop', (e) => {
+            e.preventDefault();
+            fileUploadLabel.style.borderColor = '#d1d5db';
+            fileUploadLabel.style.backgroundColor = '#ffffff';
+            
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                const fileName = e.dataTransfer.files[0].name;
+                fileNameDisplay.textContent = `Selected: ${fileName}`;
+                fileNameDisplay.style.display = 'block';
+                fileCancelBtn.style.display = 'inline-block';
+                fileUploadText.textContent = 'Change file';
+            }
+        });
+
+        // Clear form function
+        function clearForm() {
+            document.getElementById('uploadForm').reset();
+            fileNameDisplay.style.display = 'none';
+            fileCancelBtn.style.display = 'none';
+            fileUploadText.textContent = 'Choose a DOCX file or drag it here';
+            document.getElementById('date').value = today.toLocaleDateString('en-US', options);
+            document.getElementById('read_time').value = '5 min read';
+        }
+    </script>
+</body>
+</html>
